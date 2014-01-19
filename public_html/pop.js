@@ -39,10 +39,12 @@ function drawGameBoard(){
 function drawCityMap(cityMap)
 {
     var citySizeX = 7;
-    var citysizeY = 9;
+    var citySizeY = 9;
     for(var x = 0;x < citySizeX; x++){
         for(var y = 0;y < citySizeY;y++){
-            document.write("?");
+            if(cityMap === 0){
+                document.write("?");
+            }
         };
         document.write("\n");
     };
