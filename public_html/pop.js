@@ -24,16 +24,16 @@ function drawGameBoard(){
     //9*7 gameboard
     //drawCitySquares
     //— | # ¤ »
-    var cityMap = [[],[]];
+    var cityMap = new Array(7,9);
     //create cityMap
     var citySizeX = 7;
     var citySizeY = 9;
-    for(var x = 0;x < citySizeX; x++){
-        for(var y = 0;y < citySizeY;y++){
+    for (var x = 0;x < citySizeX; x++){
+        for(var y = 0;y < citySizeY; y++){
             cityMap[x][y] = 0;
         };
     };
-    
+    //place palaces
     drawCityMap(cityMap);
 }
 function drawCityMap(cityMap)
@@ -51,7 +51,6 @@ function drawCityMap(cityMap)
 }
 function setup(){ 
     chooseGameType();
-    
     var players = [];
     players = initialisePlayers(numberOfPlayers);
     drawGameBoard();
@@ -63,11 +62,11 @@ function setup(){
 function chooseGameType(){
     document.write("<BR>Choose the number of players");
     var selectionMenu = "<div >";
-    selectionMenu = selectionMenu + "<li>";
+    selectionMenu = selectionMenu + "<ul>";
     for (var i = 3 ; i < 11;i++){
-        selectionMenu = selectionMenu + "<ul> <button type=\"button\" onclick=\"setNumberOfPlayers("+i+")\">"+i+"</button></ul>";    
+        selectionMenu = selectionMenu + "<li> <button type=\"button\" onclick=\"setNumberOfPlayers("+i+")\">"+i+"</button>";    
     }
-    selectionMenu = selectionMenu + "</li>";
+    selectionMenu = selectionMenu + "</ul>";
     document.write(selectionMenu);
     
     
@@ -77,7 +76,7 @@ var setNumberOfPlayers = function(number){
     return number;
 };
 
-var  initialisePlayers = function(numberOfPlayers){
+var initialisePlayers = function(numberOfPlayers){
     var allPlayers = [];
     for(var i = 0; i < numberOfPlayers;i++){
         allPlayers[i] = player;
@@ -94,11 +93,12 @@ var setAlignment = function(number){
     var REVOLUTIONARY =  true;
     var REGIMESUPPORTER = false;
     var side = REVOLUTIONARY;
+    var playerCards = [];
     
 };
 
 var player = function(){
-    var alignment = true;
+    var alignment;
     var name = prompt("What is your name?");
      
 };
